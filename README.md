@@ -5,5 +5,4 @@
 ## 在线访问地址
 
 > [demo地址](http://www.ftc20.com/demo/vue-base-demo/#/)
-> <a href="http://www.ftc20.com/demo/vue-base-demo/#/" target="_blank">demo地址</a>
 

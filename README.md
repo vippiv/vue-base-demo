@@ -4,6 +4,6 @@
 
 ## 在线访问地址
 
-> [demo地址](http://www.ftc20.com/demo/vue-base-demo/#/)
+> [demo地址](http://www.ftc20.com/demo/vue-base-demo/#/?_blank)
 
 

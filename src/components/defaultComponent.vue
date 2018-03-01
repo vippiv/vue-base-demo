@@ -7,7 +7,8 @@
   			<div class="col-sm-3"><router-link to="/store-test">store测试demo</router-link></div>
   			<div class="col-sm-3"><router-link to="/transition-test">transition测试demo</router-link></div>
   			<div class="col-sm-3"><router-link to="/router-test">router测试demo</router-link></div>  			
-  			<div class="col-sm-3"><router-link to="/components-test">components测试demo</router-link></div>  			
+  			<div class="col-sm-3"><router-link to="/components-test">组件测试demo</router-link></div>  			
+  			<div class="col-sm-3"><router-link to="/other-test">其他测试demo</router-link></div>  			
   		</div>
   	</div>
   </div>

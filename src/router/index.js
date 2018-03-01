@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 const defaultComponent = r => require.ensure([], () => r(require('../components/defaultComponent')), 'defaultComponent')
 const baseTest = r => require.ensure([], () => r(require('../demoC/baseTest')), 'baseTest')
+const otherTest = r => require.ensure([], () => r(require('../demoC/otherTest')), 'otherTest')
 const baseTemplateSyntax = r => require.ensure([], () => r(require('../demoC/base-child/base-template-syntax')), 'baseTemplateSyntax')
 const baseComputedWatch = r => require.ensure([], () => r(require('../demoC/base-child/base-computed-watch')), 'baseComputedWatch')
 const baseClassStyle = r => require.ensure([], () => r(require('../demoC/base-child/base-class-style')), 'baseClassStyle')
@@ -36,6 +37,8 @@ const componetsPropsEmit = r => require.ensure([], () => r(require('../demoC/com
 const componetsDynamicProp = r => require.ensure([], () => r(require('../demoC/components-child/c-dynamic-props')), 'componetsDynamicProp')
 const componetsValidateProps = r => require.ensure([], () => r(require('../demoC/components-child/c-validate-props')), 'componetsValidateProps')
 const componetsSlot = r => require.ensure([], () => r(require('../demoC/components-child/c-slot')), 'componetsSlot')
+const otherJquery = r => require.ensure([],()=>r(require('../demoC/other-child/other-jquery')),'otherJquery')
+const otherSwiper = r => require.ensure([],()=>r(require('../demoC/other-child/other-swiper')),'otherSwiper')
 
 
 Vue.use(Router)
@@ -46,6 +49,26 @@ export default new Router({
       path: '/',
       name: 'defaultComponent',
       component: defaultComponent
+    },
+    {
+    	path : "/other-test",
+    	name : "otherTest",
+    	component : otherTest,
+    	children : [
+    		{
+    			path : "",
+    			component : otherJquery
+    		},
+    		{
+    			path : "other-jquery",
+    			component : otherJquery
+    		},
+    		{
+    			path : "other-swiper",
+    			name : "otherSwiper",
+    			component : otherSwiper
+    		}
+    	]
     },
     {
       path: '/base-test',

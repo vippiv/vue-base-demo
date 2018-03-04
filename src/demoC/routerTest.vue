@@ -20,6 +20,10 @@
    		<router-link to="/router-test/router-transition" class="fix-padding">路由过渡</router-link>
    		<router-link to="/router-test/router-getData-before" class="fix-padding">导航完成前加载数据</router-link>
    		<router-link to="/router-test/router-getData-after" class="fix-padding">导航完成后加载数据</router-link>
+   		<router-link to="/router-test/router-attribute-replace" replace class="fix-padding">router-link属性replace</router-link>
+   		<router-link to="/router-test/router-attribute-tag" tag="em" style="padding: 0 1em;" class="fix-padding"><span>router-link属性tag</span></router-link>
+   		<router-link to="/router-test/router-attribute-active-class" active-class="custom-link-active" class="fix-padding">router-link属性active-class</router-link>
+   		<router-link to="/router-test/router-attribute-exact" class="fix-padding">router-link属性exact</router-link>
    	</div>
    	<hr />
    	<div class="row" style="margin-bottom: 50px;">
@@ -124,4 +128,6 @@ export default {
 .slide-enter,.slide-leave-to{
 	transform: translateX(20px);
 }
+.router-link-exact-active {color: red;}
+.custom-link-active{color: orange;}
 </style>

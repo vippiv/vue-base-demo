@@ -31,6 +31,10 @@ const routerMeta = r => require.ensure([], () => r(require('../demoC/router-chil
 const routerTransition = r => require.ensure([], () => r(require('../demoC/router-child/router-transition')), 'routerTransition')
 const routerGetDataBefore = r => require.ensure([], () => r(require('../demoC/router-child/router-getData-before')), 'routerGetDataBefore')
 const routerGetDataAfter = r => require.ensure([], () => r(require('../demoC/router-child/router-getData-after')), 'routerGetDataAfter')
+const routerAttributeReplace = r => require.ensure([], () => r(require('../demoC/router-child/router-attribute-replace')), 'routerAttributeReplace')
+const routerAttributeTag = r => require.ensure([], () => r(require('../demoC/router-child/router-attribute-tag')), 'routerAttributeTag')
+const routerAttributeAC = r => require.ensure([], () => r(require('../demoC/router-child/router-attribute-ac')), 'routerAttributeAC')
+const routerAttributeExact = r => require.ensure([], () => r(require('../demoC/router-child/router-attribute-exact')), 'routerAttributeExact')
 const componentsTest = r => require.ensure([], () => r(require('../demoC/componentsTest')), 'componentsTest')
 const componetsDataIsFun = r => require.ensure([], () => r(require('../demoC/components-child/c-data-is-fun')), 'componetsDataIsFun')
 const componetsPropsEmit = r => require.ensure([], () => r(require('../demoC/components-child/c-props-emit')), 'componetsPropsEmit')
@@ -237,6 +241,26 @@ export default new Router({
 		    	path : "router-getData-after",
 		    	name : "routerGetDataAfter",
 		    	component : routerGetDataAfter
+		    },
+		    {
+		    	path : "router-attribute-replace",
+		    	name : "routerAttributeReplace",
+		    	component : routerAttributeReplace
+		    },
+		    {
+		    	path : "router-attribute-tag",
+		    	name : "routerAttributeTag",
+		    	component : routerAttributeTag
+		    },
+		    {
+		    	path : "router-attribute-active-class",
+		    	name : "routerAttributeAC",
+		    	component : routerAttributeAC
+		    },
+		    {
+		    	path : "router-attribute-exact",
+		    	name : "routerAttributeExact",
+		    	component : routerAttributeExact
 		    }
     	]
     },

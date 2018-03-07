@@ -41,6 +41,7 @@ const componetsPropsEmit = r => require.ensure([], () => r(require('../demoC/com
 const componetsDynamicProp = r => require.ensure([], () => r(require('../demoC/components-child/c-dynamic-props')), 'componetsDynamicProp')
 const componetsValidateProps = r => require.ensure([], () => r(require('../demoC/components-child/c-validate-props')), 'componetsValidateProps')
 const componetsSlot = r => require.ensure([], () => r(require('../demoC/components-child/c-slot')), 'componetsSlot')
+const componetsIs = r => require.ensure([], () => r(require('../demoC/components-child/c-is')), 'componetsIs')
 const otherJquery = r => require.ensure([],()=>r(require('../demoC/other-child/other-jquery')),'otherJquery')
 const otherSwiper = r => require.ensure([],()=>r(require('../demoC/other-child/other-swiper')),'otherSwiper')
 
@@ -296,6 +297,11 @@ export default new Router({
     			path : "c-slot",
     			name : "componetsSlot",
     			component : componetsSlot
+    		},
+    		{
+    			path : "c-is",
+    			name : "componetsIs",
+    			component : componetsIs
     		}
     	]
     }

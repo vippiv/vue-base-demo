@@ -13,6 +13,7 @@
   			<router-link to="/components-test/c-props-emit" class="fix-padding">组件组合props和emit</router-link>
   			<router-link to="/components-test/c-validate-props" class="fix-padding">props验证</router-link>
   			<router-link to="/components-test/c-slot" class="fix-padding">组件插槽</router-link>
+  			<router-link to="/components-test/c-is" class="fix-padding">组件is特性</router-link>
   		</div>
   	</div>
   	<hr />

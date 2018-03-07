@@ -7,6 +7,7 @@
 				<li>文本：
 					<input type="text" class="form-control" v-model="msg" />
 					<p>这里将会显示您输入的值：{{msg}}</p>
+					<p>这里将会显示您过滤后的值(v-model如何使用过滤器)：{{msgF}}</p>
 				</li>
 				<li>多行文本：
 					<textarea name="" rows="" cols="" class="form-control" v-model="mutliMsg"></textarea>
@@ -106,6 +107,14 @@ export default {
   methods : {
 		
   },
+  computed : {
+  	"msgF"(){
+  		if(this.msg.length>5){
+  			return this.msg.substr(0,5);
+  		}
+  		return this.msg;
+  	}
+  }
 }
 </script>
 

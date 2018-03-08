@@ -14,6 +14,12 @@ Vue.config.productionTip = false
 
 Vue.config.keyCodes.f2 = 113
 
+Vue.directive("focus",{
+	inserted(el){
+		el.focus();
+	}
+});
+
 //beforeEach 全局前置导航守卫，应用所有路由变化都会触发，接受to，from，next三个参数
 router.beforeEach(function(to,from,next){
 	console.log("全局前置导航守卫，beforeEach");

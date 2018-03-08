@@ -44,6 +44,7 @@ const componetsSlot = r => require.ensure([], () => r(require('../demoC/componen
 const componetsIs = r => require.ensure([], () => r(require('../demoC/components-child/c-is')), 'componetsIs')
 const otherJquery = r => require.ensure([],()=>r(require('../demoC/other-child/other-jquery')),'otherJquery')
 const otherSwiper = r => require.ensure([],()=>r(require('../demoC/other-child/other-swiper')),'otherSwiper')
+const otherCustomDirective = r => require.ensure([],()=>r(require('../demoC/other-child/other-custom-directive')),'otherCustomDirective')
 
 
 Vue.use(Router)
@@ -72,6 +73,11 @@ export default new Router({
     			path : "other-swiper",
     			name : "otherSwiper",
     			component : otherSwiper
+    		},
+    		{
+    			path : "other-custom-directive",
+    			name : "otherCustomDirective",
+    			component : otherCustomDirective
     		}
     	]
     },

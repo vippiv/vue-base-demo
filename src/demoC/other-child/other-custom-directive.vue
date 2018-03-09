@@ -44,6 +44,24 @@
   			</li>
   		</ul>
   		<hr />
+  		<p><strong>钩子函数参数：</strong></p>
+  		<ul>
+  			<li><strong>el：</strong>指令所绑定的元素，可以直接用来操作DOM</li>
+  			<li>
+  				<strong>binding：</strong>一个对象，包含以下属性
+  				<ul>
+  					<li><strong>name：</strong>指令名，不包含v-前缀</li>
+  					<li><strong>value：</strong>指令的绑定值，例如：v-my-directive="1 + 1" 中，绑定值为 2</li>
+  					<li><strong>oldValue：</strong>指令的绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用</li>
+  					<li><strong>expression：</strong>字符串形式的指令表达式。例如 v-my-directive="1 + 1" 中，表达式为 "1 + 1"</li>
+  					<li><strong>arg：</strong>传给指令的参数，可选。例如 v-my-directive:foo 中，参数为 "foo"</li>
+  					<li><strong>modifiers：</strong>一个包含修饰符的对象。例如：v-my-directive.foo.bar 中，修饰符对象为 { foo: true, bar: true }</li>
+  				</ul>
+  			</li>
+  			<li><strong>vnode：</strong>vue编译生成的虚拟节点</li>
+  			<li><strong>oldVnode：</strong>上一个虚拟节点，仅在 update 和 componentUpdated 钩子中可用</li>
+  		</ul>
+  		<hr />
   		<p><strong>PS:</strong></p>
   		<ul>
   			<li>自定义指令是用来操作DOM的</li>

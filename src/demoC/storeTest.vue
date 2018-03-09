@@ -7,6 +7,7 @@
 	   		<router-link to="/store-test/store-getData" class="fix-padding">获取数据</router-link>
 	   		<router-link to="/store-test/store-mutations" class="fix-padding">mutation</router-link>
 	   		<router-link to="/store-test/store-actions" class="fix-padding">action</router-link>
+	   		<a href="http://www.ftc20.com/demo/vue-crab/#/" target="_blank" class="fix-padding">module</a>
 	   	</div>
 	   	<hr />
    	</div>

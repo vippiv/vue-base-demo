@@ -6,6 +6,8 @@ import App from './App'
 import router from './router'
 import store from "./store"
 import lodash from "lodash"
+import axios from "axios"
+
 
 Vue.use(vuex)
 Vue.use(lodash)
@@ -13,6 +15,8 @@ Vue.use(lodash)
 Vue.config.productionTip = false
 
 Vue.config.keyCodes.f2 = 113
+
+Vue.prototype.$http = axios
 
 Vue.directive("focus",{
 	inserted(el){
@@ -33,6 +37,8 @@ router.afterEach(function(to,from){
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./style/style.css"
+//必须要全局引入才行，在组件内引入无效
+import "./style/font-awesome/font-awesome.min.css"
 
 /* eslint-disable no-new */
 new Vue({

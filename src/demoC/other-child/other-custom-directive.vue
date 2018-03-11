@@ -38,7 +38,7 @@
   				<p><strong>componentUpdated：</strong>指令所在组件的 VNode 及其子 VNode 全部更新后调用</p>
   			</li>
   			<li>
-  				<p><strong>unbind：</strong>只调用一次，指令与元素解绑时调用。</p>
+  				<p><strong>unbind：</strong>只调用一次，指令与元素解绑时调用，如：路由切换就会触发unbind</p>
   				<div v-eventDirective v-if="isUnbind">点击这里试试</div>
   				<div @click="doUnbind" class="pointer">点击这里解除bind</div>
   			</li>
@@ -73,11 +73,20 @@
   			<p>关于自定义指令，这篇文章不错 http://ju.outofmemory.cn/entry/336577</p>
   		</blockquote>
   	</div>
-    
+    <div class="tooltips">
+    	<div class="note" title="这里是自定义tip指令"><i class="icon icon-tags"></i></div>
+    	<div class="phone" v-tip><i class="icon icon-mobile-phone"></i> <span>13402515810</span></div>
+    	<div class="qr" v-tip><i class="icon icon-comments-alt"></i> <span>sz_chaoyang</span></div>
+    	<div class="email" v-tip><i class="icon icon-envelope"></i> <span>470211273@qq.com</span></div>
+    </div>
   </div>
 </template>
 
 <script>
+import $ from "jquery"
+function tips(){
+	alert("在指令bind钩子函数里，给该元素添加了监听器");
+}
 export default {
   name: 'otherCustomDirective',
   data () {
@@ -131,15 +140,28 @@ export default {
   		bind(el){
   			el.addEventListener("click",tips,false);
   			
-  			function tips(){
-  				alert("在指令bind钩子函数里，给该元素添加了监听器");
-  			}
+  			
   		},
   		unbind(el){
   			alert("如果你看到了我，说明调用了unbind");
   			el.removeEventListener("click",tips);
   		}
-  	}
+  	},
+		tip : {
+			inserted(el){
+				$(el).hover(function(){
+					$(this).find("span").css("display","block").stop().animate({
+						"opacity" : 1,
+						"left" : "70px"
+					},"fast");
+				},function(){
+					$(this).find("span").stop().animate({
+						"opacity" : 0,
+						"left" : "100px"
+					},"fast").css("display","none");
+				})
+			}
+		},
   }
 }
 </script>
@@ -149,4 +171,14 @@ export default {
 .bid{padding:0.5em;}
 .bid-add-class{border:1px solid black; color: green;border-radius: 0.3em;}
 .h500{height: 500px;}
+.tooltips{position: fixed;left: 0; top: 40%;}
+.tooltips>div{background-color: #EEE;width:50px; height:50px; line-height: 50px; text-align:center; position: relative;}
+.tooltips>div>i{font-size: 22px;}
+.tooltips>div:nth-child(1) i{font-size:20px;}
+.tooltips>div:nth-child(2){line-height: 60px;}
+.tooltips>div:nth-child(2) i{font-size:30px;}
+.tooltips>div:hover{background-color: #c8c7c7;}
+.tooltips>div:hover i{color: darkred;}
+.tooltips>div>span{padding: 0px 20px;height:36px; line-height: 36px;position: absolute;left:100px; top:50%; transform: translateY(-50%); background-color: #333; border-radius: 0.3em;display:none; opacity: 0;color: white;}
+.tooltips>div>span::after{content:"";padding: 5px;background-color: #333;position: absolute;left: -8px;top: 50%;transform: rotate(45deg) translateY(-50%);}
 </style>

@@ -7,6 +7,7 @@
    		<router-link to="/other-test/other-jquery" class="fix-padding">引用jquery</router-link>
    		<router-link to="/other-test/other-swiper" class="fix-padding">引用swiper</router-link>
    		<router-link to="/other-test/other-custom-directive" class="fix-padding">自定义指令</router-link>
+   		<router-link to="/other-test/other-axios" class="fix-padding">axios</router-link>
    	</div>
    	<hr />
    	<div class="row" style="margin-bottom: 50px;">

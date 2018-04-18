@@ -1,0 +1,18 @@
+coupon.vue 组件中图片src采用这种写法报错
+<img :src="{{item.imglink}}" alt="" />
+必须这样写才才对
+<img :src="item.imglink" alt="" />
+官方文档好像没有提到如何绑定图片src
+参考地址：http://blog.csdn.net/sinat_36555135/article/details/71832654
+
+vue动态引入图片，引用的不是相对地址而应该是模块，可以使用 import 或者 require引入
+store/index.js中引用图片必须使用这种写法require('@/assets/product/coupons/380.jpg')
+https://segmentfault.com/q/1010000008881814
+https://zhuanlan.zhihu.com/p/25829687?refer=think-in-vue
+
+swiper功能直接放在head-guide组件就有问题，单独拎出来做成组件就没问题，不清楚为什么
+
+this.$route.params和this.$route.query有什么区别
+如何获得vue module中的getters
+
+vue项目修改数据的时候一定要注意修改后的数据是否是响应式的

@@ -46,6 +46,7 @@ const otherJquery = r => require.ensure([],()=>r(require('../demoC/other-child/o
 const otherSwiper = r => require.ensure([],()=>r(require('../demoC/other-child/other-swiper')),'otherSwiper')
 const otherCustomDirective = r => require.ensure([],()=>r(require('../demoC/other-child/other-custom-directive')),'otherCustomDirective')
 const otherAxios = r => require.ensure([],()=>r(require('../demoC/other-child/other-axios')),'otherAxios')
+const otherJsonp = r => require.ensure([],()=>r(require('../demoC/other-child/other-jsonp')),'otherJsonp')
 
 
 Vue.use(Router)
@@ -84,6 +85,11 @@ export default new Router({
     			 path : "other-axios",
     			 name : "otherAxios",
     			 component : otherAxios,
+    		},
+    		{
+    			path : "other-jsonp",
+    			name : "otherJsonp",
+    			component : otherJsonp
     		}
     	]
     },

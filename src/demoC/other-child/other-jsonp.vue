@@ -1,13 +1,8 @@
 <template>
-  <div class="other-axios">
+  <div class="other-jsonp">
   	<div class="container">
   		<h3>{{title}}</h3>
   		<ul>
-  			<li><strong>您所在城市天气</strong>
-  				<ul>
-  					<li v-for="(index,key) in weatherInfo">{{key}}：{{weatherInfo[key]}}</li>
-  				</ul>
-  			</li>
   			<li>
   				<strong>指定城市天气 </strong>
   				<ul>
@@ -24,13 +19,13 @@
 </template>
 
 <script>
-	import $ from "jquery"
+	import jsonp from "jsonp"
 	import CryptoJS from "crypto-js"
 export default {
-  name: 'otherAxios',
+  name: 'otherJsonp',
   data () {
     return {
-      title: "ajax插件axios",
+      title: "jsonp",
       weatherInfo : "",
       xzWeatherInfo : "",
       city : "",
@@ -38,18 +33,6 @@ export default {
     }
   },
   methods : {
-  	getData(){
-  		var _this = this;
-  		$.ajax({ 
-				url : "//www.moguwang.net/api2.php?mod=weather", 
-				dataType : "script",
-				scriptCharset : "gbk",
-				success : function(data) { 
-					var _w = window.SWther.lives[0];
-					_this.weatherInfo = _w;
-				} 
-			});
-  	},
   	xzWeatherFn(){
   		var _this = this;
   		_this.errorMsg = "";
@@ -69,7 +52,7 @@ export default {
 		  // 构造最终请求的 url
 		  var url = API + "?location=" + LOCATION + "&" + str + "&callback=jsonpCallback";
 		  
-		  var jsonpCallback = function(data) {
+		  window.jsonpCallback = function(data) {
 		    var weather = data.results[0];
 		    var text = [];
 		    text.push("位置：" + weather.location.path);
@@ -79,23 +62,23 @@ export default {
 		    return text;
 		  }
 
-		  // 直接发送请求进行调用，手动处理回调函数
-		  $.ajax({
-		  	url : url,
-		  	dataType : "jsonp",
-		  	jsonpCallback : "jsonpCallback",
-		  	success : function(data){
-		  		_this.xzWeatherInfo = jsonpCallback(data);
-		  	},
-		  	error : function(data){
-		  		_this.errorMsg = data.statusText;
-		  	}
-		  });
-		  
+			var param = {
+				param : "jsonpCallback"
+			}
+			
+			jsonp(url, param , function (err, data) {
+				console.log(data);
+			  if (err) {
+			    console.error(err.message);
+			  } else {
+			  	
+			    _this.xzWeatherInfo = jsonpCallback(data);
+			  }
+			});
+				
   	}
   },
   mounted(){
-  	this.getData();
   	this.xzWeatherFn();
   }
 }

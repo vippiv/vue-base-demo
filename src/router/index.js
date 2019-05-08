@@ -47,6 +47,7 @@ const otherSwiper = r => require.ensure([],()=>r(require('../demoC/other-child/o
 const otherCustomDirective = r => require.ensure([],()=>r(require('../demoC/other-child/other-custom-directive')),'otherCustomDirective')
 const otherAxios = r => require.ensure([],()=>r(require('../demoC/other-child/other-axios')),'otherAxios')
 const otherJsonp = r => require.ensure([],()=>r(require('../demoC/other-child/other-jsonp')),'otherJsonp')
+const mixinsTest = r => require.ensure([],()=>r(require('../demoC/mixins')),'mixins')
 
 
 Vue.use(Router)
@@ -322,6 +323,10 @@ export default new Router({
     			component : componetsIs
     		}
     	]
+    },
+    {
+      path: '/mixins',
+      component: mixinsTest
     }
   ]
 })

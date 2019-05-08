@@ -42,9 +42,9 @@ import "./style/font-awesome/font-awesome.min.css"
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  render: h => h(App),
   router,
 	store,
   components: { App },
   template: '<App/>'
-})
+}).$mount('#app')

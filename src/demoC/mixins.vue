@@ -1,6 +1,6 @@
 <template>
     <div class="mixins">
-      mixins混合在Vue是为了提出相似的数据和功能，使代码易懂，简单、清晰
+      mixins混合在Vue是为了提出相似的数据和功能，使代码易懂，简单、清晰，效果请看控制台mixins输出
     </div>
 </template>
 
